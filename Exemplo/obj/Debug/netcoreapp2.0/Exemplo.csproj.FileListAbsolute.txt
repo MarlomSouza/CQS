@@ -1,0 +1,11 @@
+d:\Projetos\CQS\Exemplo\bin\Debug\netcoreapp2.0\Exemplo.deps.json
+d:\Projetos\CQS\Exemplo\bin\Debug\netcoreapp2.0\Exemplo.runtimeconfig.json
+d:\Projetos\CQS\Exemplo\bin\Debug\netcoreapp2.0\Exemplo.runtimeconfig.dev.json
+d:\Projetos\CQS\Exemplo\bin\Debug\netcoreapp2.0\Exemplo.dll
+d:\Projetos\CQS\Exemplo\bin\Debug\netcoreapp2.0\Exemplo.pdb
+d:\Projetos\CQS\Exemplo\obj\Debug\netcoreapp2.0\Exemplo.csproj.CoreCompileInputs.cache
+d:\Projetos\CQS\Exemplo\obj\Debug\netcoreapp2.0\Exemplo.AssemblyInfoInputs.cache
+d:\Projetos\CQS\Exemplo\obj\Debug\netcoreapp2.0\Exemplo.AssemblyInfo.cs
+d:\Projetos\CQS\Exemplo\obj\Debug\netcoreapp2.0\Exemplo.dll
+d:\Projetos\CQS\Exemplo\obj\Debug\netcoreapp2.0\Exemplo.pdb
+D:\Projetos\CQS\Exemplo\obj\Debug\netcoreapp2.0\Exemplo.csprojResolveAssemblyReference.cache
