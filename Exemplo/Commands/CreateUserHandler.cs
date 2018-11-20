@@ -4,7 +4,7 @@ using Exemplo.Repository;
 
 namespace Exemplo.Commands
 {
-    public class CreateUserHandler : ICommand
+    public class CreateUserHandler : ICommandHandler<CreateUser>
     {
         private readonly IRepository<User> repository;
         public CreateUserHandler(UserRepository repository)
@@ -12,11 +12,10 @@ namespace Exemplo.Commands
             this.repository = repository;
         }
 
-        public Task HandleAsync(CreateUser command)
+        public void Execute(CreateUser command)
         {
             var user = new User(command.Nickname, command.Email, command.Password);
             repository.Save(user);
-            return Task.Delay(1000);
         }
     }
 }

@@ -2,7 +2,7 @@ using System;
 
 namespace Exemplo.Commands
 {
-    public class CreateUser :
+    public class CreateUser : ICommand
     {
         public Guid UserId { get; set; }
         public string Email { get; set; }

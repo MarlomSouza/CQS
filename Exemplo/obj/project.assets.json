@@ -12536,8 +12536,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Asgard\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\marlomsouza\\.nuget\\packages\\": {},
+    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -12545,14 +12545,14 @@
       "projectUniqueName": "D:\\Projetos\\CQS\\Exemplo\\Exemplo.csproj",
       "projectName": "Exemplo",
       "projectPath": "D:\\Projetos\\CQS\\Exemplo\\Exemplo.csproj",
-      "packagesPath": "C:\\Users\\Asgard\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\marlomsouza\\.nuget\\packages\\",
       "outputPath": "D:\\Projetos\\CQS\\Exemplo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Asgard\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marlomsouza\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
