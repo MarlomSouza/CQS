@@ -12,9 +12,9 @@ namespace Exemplo.Commands
             this.repository = repository;
         }
 
-        public void Execute(CreateUser command)
+        public void Execute(CreateUser createUser)
         {
-            var user = new User(command.Nickname, command.Email, command.Password);
+            var user = new User(createUser.Nickname, createUser.Email, createUser.Password);
             repository.Save(user);
         }
     }

@@ -2,6 +2,6 @@ namespace Exemplo.Commands
 {
     public interface ICommandDispatcher
     {
-        void Execute<TCommand>(TCommand command) where TCommand : ICommand;
+        void Dispatch<T>(T command) where T : ICommand;
     }
 }
