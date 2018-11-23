@@ -9,11 +9,15 @@ namespace Exemplo.Controllers
     {
         private readonly ICommandDispatcher _commandDispatcher;
 
-
         public UserController(ICommandDispatcher commandDispatcher)
         {
             _commandDispatcher = commandDispatcher;
-            
+        }
+
+        [HttpGet]
+        public CreateUser Get()
+        {
+            return new CreateUser();
         }
 
         [HttpPost]
@@ -21,6 +25,11 @@ namespace Exemplo.Controllers
         {
             _commandDispatcher.Dispatch(createUser);
             return Ok();
+        }
+
+        [HttpDelete]
+        public void Delete([FromBody] DeleteUser delete){
+            _commandDispatcher.Dispatch(delete);
         }
     }
 }

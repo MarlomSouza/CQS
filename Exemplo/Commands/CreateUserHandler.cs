@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Exemplo.Domain;
 using Exemplo.Repository;
@@ -6,8 +7,9 @@ namespace Exemplo.Commands
 {
     public class CreateUserHandler : ICommandHandler<CreateUser>
     {
-        private readonly IRepository<User> repository;
-        public CreateUserHandler(UserRepository repository)
+        private readonly IRepository<Entity> repository;
+
+        public CreateUserHandler(IRepository<Entity> repository)
         {
             this.repository = repository;
         }
@@ -16,6 +18,7 @@ namespace Exemplo.Commands
         {
             var user = new User(createUser.Nickname, createUser.Email, createUser.Password);
             repository.Save(user);
+            Console.WriteLine("SALVOU NO BANCO");
         }
     }
 }

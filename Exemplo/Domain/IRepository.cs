@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Exemplo.Domain
@@ -7,5 +8,6 @@ namespace Exemplo.Domain
         void Save(TEntity entity);
         TEntity Get(int id);
         IEnumerable<TEntity> Get();
+        void Delete(TEntity entity);
     }
 }

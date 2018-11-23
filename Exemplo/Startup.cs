@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Exemplo.Commands;
+using Exemplo.Data.Context;
+using Exemplo.Domain;
+using Exemplo.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -23,7 +28,13 @@ namespace Exemplo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped(typeof(IRepository<>), type)
+
+            services.AddScoped(typeof(IRepository<Entity>), typeof(Repository<Entity>));
+            services.AddScoped(typeof(ICommandDispatcher), typeof(CommandDispatcher));
+            services.AddScoped(typeof(ICommandHandler<CreateUser>), typeof(CreateUserHandler));
+            services.AddScoped(typeof(ICommandHandler<DeleteUser>), typeof(DeleteUserHandler));
+            
+
             services.AddMvc();
         }
 

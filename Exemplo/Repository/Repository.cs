@@ -13,6 +13,9 @@ namespace Exemplo.Repository
         {
             this.context = context;
         }
+
+        public void Delete(TEntity entity) => context.Set<TEntity>().Remove(entity);
+
         public TEntity Get(int id) => context.Set<TEntity>().SingleOrDefault(entity => entity.Id == id);
 
         public IEnumerable<TEntity> Get() => context.Set<TEntity>().AsEnumerable();
