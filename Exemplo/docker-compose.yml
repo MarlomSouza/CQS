@@ -1,0 +1,18 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+      args:
+        - Ambiente=Development
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+  db:
+    build:
+      context: ./DataBase
+      dockerfile: db.Dockerfile
+    ports:
+     - "1400:1433"

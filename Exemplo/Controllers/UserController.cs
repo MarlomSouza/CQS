@@ -1,5 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Exemplo.Commands;
+using Exemplo.Domain;
+using Exemplo.Query;
+using Exemplo.Query.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exemplo.Controllers
@@ -8,16 +13,20 @@ namespace Exemplo.Controllers
     public class UserController : Controller
     {
         private readonly ICommandDispatcher _commandDispatcher;
+        private readonly IQueryDispatcher _queryDispatcher;
 
-        public UserController(ICommandDispatcher commandDispatcher)
+        public UserController(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher)
         {
             _commandDispatcher = commandDispatcher;
+            _queryDispatcher = queryDispatcher;
         }
 
         [HttpGet]
-        public CreateUser Get()
+        public CreateUser Get(AllUserQuery allUser)
         {
-            return new CreateUser();
+            _queryDispatcher.Execute<AllUserQuery,IEnumerable<User>>(allUser);
+
+            return null;
         }
 
         [HttpPost]

@@ -1,3 +1,14 @@
+/app/bin/Debug/netcoreapp2.0/Exemplo.deps.json
+/app/bin/Debug/netcoreapp2.0/Exemplo.runtimeconfig.json
+/app/bin/Debug/netcoreapp2.0/Exemplo.runtimeconfig.dev.json
+/app/bin/Debug/netcoreapp2.0/Exemplo.dll
+/app/bin/Debug/netcoreapp2.0/Exemplo.pdb
+/app/obj/Debug/netcoreapp2.0/Exemplo.csprojAssemblyReference.cache
+/app/obj/Debug/netcoreapp2.0/Exemplo.csproj.CoreCompileInputs.cache
+/app/obj/Debug/netcoreapp2.0/Exemplo.AssemblyInfoInputs.cache
+/app/obj/Debug/netcoreapp2.0/Exemplo.AssemblyInfo.cs
+/app/obj/Debug/netcoreapp2.0/Exemplo.dll
+/app/obj/Debug/netcoreapp2.0/Exemplo.pdb
 D:\Projetos\CQS\Exemplo\bin\Debug\netcoreapp2.0\Exemplo.deps.json
 D:\Projetos\CQS\Exemplo\bin\Debug\netcoreapp2.0\Exemplo.runtimeconfig.json
 D:\Projetos\CQS\Exemplo\bin\Debug\netcoreapp2.0\Exemplo.runtimeconfig.dev.json

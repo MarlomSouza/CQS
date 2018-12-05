@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Exemplo.Commands;
 using Exemplo.Data.Context;
 using Exemplo.Domain;
+using Exemplo.Query;
+using Exemplo.Query.Interface;
 using Exemplo.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +33,8 @@ namespace Exemplo
 
             services.AddScoped(typeof(IRepository<Entity>), typeof(Repository<Entity>));
             services.AddScoped(typeof(ICommandDispatcher), typeof(CommandDispatcher));
+            services.AddScoped(typeof(IQueryDispatcher), typeof(QueryDispatcher));
+            services.AddScoped(typeof(IQueryHandler<AllUserQuery, IEnumerable<User>>), typeof(AllUserQueryHandler));
             services.AddScoped(typeof(ICommandHandler<CreateUser>), typeof(CreateUserHandler));
             services.AddScoped(typeof(ICommandHandler<DeleteUser>), typeof(DeleteUserHandler));
             
