@@ -37,7 +37,6 @@ namespace Exemplo
             services.AddScoped(typeof(IQueryHandler<AllUserQuery, IEnumerable<User>>), typeof(AllUserQueryHandler));
             services.AddScoped(typeof(ICommandHandler<CreateUser>), typeof(CreateUserHandler));
             services.AddScoped(typeof(ICommandHandler<DeleteUser>), typeof(DeleteUserHandler));
-            
 
             services.AddMvc();
         }

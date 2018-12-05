@@ -22,11 +22,11 @@ namespace Exemplo.Controllers
         }
 
         [HttpGet]
-        public CreateUser Get(AllUserQuery allUser)
+        public IEnumerable<User> Get(AllUserQuery allUser)
         {
-            _queryDispatcher.Execute<AllUserQuery,IEnumerable<User>>(allUser);
+            var users = _queryDispatcher.Execute<AllUserQuery,IEnumerable<User>>(allUser);
 
-            return null;
+            return users;
         }
 
         [HttpPost]
