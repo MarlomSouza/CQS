@@ -22,11 +22,19 @@ namespace Exemplo.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<User> Get(AllUserQuery allUser)
+        public IEnumerable<User> Get()
         {
-            var users = _queryDispatcher.Execute<AllUserQuery,IEnumerable<User>>(allUser);
-
+            var allUser = new AllUserQuery();
+            var users = _queryDispatcher.Execute<AllUserQuery, IEnumerable<User>>(allUser);
             return users;
+        }
+
+        [HttpGet("{Id}")]
+        public User Get(int id)
+        {
+            var query = new UserQuery { Id = id };
+            var user = _queryDispatcher.Execute<UserQuery, User>(query);
+            return user;
         }
 
         [HttpPost]
@@ -37,7 +45,8 @@ namespace Exemplo.Controllers
         }
 
         [HttpDelete]
-        public void Delete([FromBody] DeleteUser delete){
+        public void Delete([FromBody] DeleteUser delete)
+        {
             _commandDispatcher.Dispatch(delete);
         }
     }

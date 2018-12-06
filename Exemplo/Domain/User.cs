@@ -8,10 +8,12 @@ namespace Exemplo.Domain
         public string Email { get; private set; }
         public string Password { get; private set; }
 
+        private User() { }
         public User(string name, string email, string password)
         {
             Validade(name, email, password);
 
+            this.Guid = Guid.NewGuid();
             this.Name = name;
             this.Email = email;
             this.Password = password;

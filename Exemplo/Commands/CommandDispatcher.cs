@@ -18,6 +18,7 @@ namespace Exemplo.Commands
 
             if (command == null)
                 throw new ArgumentNullException("command");
+
             try
             {
                 var handler = (ICommandHandler<T>)serviceProvider.GetService(typeof(ICommandHandler<T>));

@@ -16,7 +16,7 @@ namespace Exemplo.Commands
 
         public void Execute(CreateUser createUser)
         {
-            var user = new User(createUser.Nickname, createUser.Email, createUser.Password);
+            var user = new User(createUser.Name, createUser.Email, createUser.Password);
             repository.Save(user);
             Console.WriteLine("SALVOU NO BANCO");
         }

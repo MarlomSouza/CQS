@@ -30,13 +30,16 @@ namespace Exemplo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddScoped(typeof(IRepository<Entity>), typeof(Repository<Entity>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(ICommandDispatcher), typeof(CommandDispatcher));
-            services.AddScoped(typeof(IQueryDispatcher), typeof(QueryDispatcher));
-            services.AddScoped(typeof(IQueryHandler<AllUserQuery, IEnumerable<User>>), typeof(AllUserQueryHandler));
             services.AddScoped(typeof(ICommandHandler<CreateUser>), typeof(CreateUserHandler));
             services.AddScoped(typeof(ICommandHandler<DeleteUser>), typeof(DeleteUserHandler));
+            services.AddScoped(typeof(IQueryDispatcher), typeof(QueryDispatcher));
+            services.AddScoped(typeof(IQueryHandler<AllUserQuery, IEnumerable<User>>), typeof(AllUserQueryHandler));
+            services.AddScoped(typeof(IQueryHandler<UserQuery,User>), typeof(UserQueryHandler));
 
             services.AddMvc();
         }
