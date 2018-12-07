@@ -1,29 +1,29 @@
 using System.Collections.Generic;
 using System.Linq;
-using Exemplo.Data.Context;
-using Exemplo.Domain;
+using Exemplo.Dominio;
+using Exemplo.Persistence;
 
 namespace Exemplo.Repository
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
-        private readonly ApplicationDbContext context;
+        private readonly ApplicationDbContext _context;
 
         public Repository(ApplicationDbContext context)
         {
-            this.context = context;
+            this._context = context;
         }
 
-        public void Delete(TEntity entity) => context.Set<TEntity>().Remove(entity);
+        public void Delete(TEntity entity) => _context.Set<TEntity>().Remove(entity);
 
-        public TEntity Get(int id) => context.Set<TEntity>().SingleOrDefault(entity => entity.Id == id);
+        public TEntity Get(int id) => _context.Set<TEntity>().SingleOrDefault(entity => entity.Id == id);
 
-        public IEnumerable<TEntity> Get() => context.Set<TEntity>().AsEnumerable();
+        public IEnumerable<TEntity> Get() => _context.Set<TEntity>().AsEnumerable();
 
         public void Save(TEntity entity)
         {
-            context.Add<TEntity>(entity);
-            context.SaveChanges();
+            _context.Add<TEntity>(entity);
+            _context.SaveChanges();
         }
     }
 }

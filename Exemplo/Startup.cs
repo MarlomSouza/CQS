@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Exemplo.Commands;
-using Exemplo.Data.Context;
-using Exemplo.Domain;
-using Exemplo.Query;
-using Exemplo.Query.Interface;
+﻿using Exemplo.Aplicacao.Infraestrutura;
+using Exemplo.Aplicacao.Infraestrutura.Interface;
+using Exemplo.Aplicacao.Users.Commands;
+using Exemplo.Aplicacao.Users.Query;
+using Exemplo.Dominio;
+using Exemplo.Persistence;
 using Exemplo.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using System.Collections.Generic;
 
 namespace Exemplo
 {

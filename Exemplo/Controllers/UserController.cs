@@ -1,11 +1,12 @@
-using System.Collections;
+using Exemplo.Aplicacao.Commands;
+using Exemplo.Aplicacao.Commands.Interface;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Exemplo.Commands;
-using Exemplo.Domain;
-using Exemplo.Query;
-using Exemplo.Query.Interface;
-using Microsoft.AspNetCore.Mvc;
+using Exemplo.Aplicacao.Infraestrutura.Interface;
+using Exemplo.Aplicacao.Users.Commands;
+using Exemplo.Aplicacao.Users.Query;
+using Exemplo.Dominio;
 
 namespace Exemplo.Controllers
 {
