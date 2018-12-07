@@ -5,7 +5,7 @@ using Dominio._Base;
 using Dominio.Entities;
 using Dominio.Exceptions;
 
-namespace Web.Service
+namespace Aplicacao.Atividades.Service
 {
     public class AtividadeService : IAtividadeService
     {

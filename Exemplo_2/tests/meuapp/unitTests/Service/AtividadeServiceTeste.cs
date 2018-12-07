@@ -3,7 +3,7 @@ using Dominio._Base;
 using Dominio.Entities;
 using meuapp.unitTests.Builders;
 using Moq;
-using Web.Service;
+using Aplicacao.Atividade.Service;
 using System.Linq;
 using Xunit;
 using System.Collections.Generic;
