@@ -10,6 +10,7 @@ namespace Dominio.Entities
         public TipoAtividade Tipo { get; private set; }
         public bool Concluida { get; private set; }
 
+
         public Atividade(string titulo, string descricao, TipoAtividade tipo, DateTime dataCriacao)
         {
             DomainException.Quando(string.IsNullOrWhiteSpace(titulo),
@@ -20,6 +21,10 @@ namespace Dominio.Entities
             Titulo = titulo;
             Descricao = descricao;
             Tipo = tipo;
+        }
+
+        private Atividade()
+        {
         }
 
         public void Alterar(string titulo, string descricao, TipoAtividade tipo, DateTime data)
