@@ -13,21 +13,19 @@ namespace Exemplo.Aplicacao.Infraestrutura
             _serviceProvider = serviceProvider;
         }
 
-        public async void Dispatch<T>(T command) where T : ICommand
+        public async void Dispatch<TCommand>(TCommand command) where TCommand : ICommand
         {
-
-            if (command == null)
-                throw new ArgumentNullException("command");
+            if (command == null) throw new ArgumentNullException("command");
 
             try
             {
-                var handler = (ICommandHandler<T>)_serviceProvider.GetService(typeof(ICommandHandler<T>));
-                
+                var handler = (ICommandHandler<TCommand>)_serviceProvider.GetService(typeof(ICommandHandler<TCommand>));
+
                 handler.Execute(command);
             }
             catch (Exception ex)
             {
-                throw new Exception(string.Format("Can not resolve handler for ICommandHandler<{0}>", typeof(T).Name), ex);
+                throw new Exception($"Can not resolve handler for ICommandHandler<{typeof(TCommand).Name}>", ex);
             }
         }
     }

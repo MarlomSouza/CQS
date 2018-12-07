@@ -4,7 +4,7 @@ using Exemplo.Aplicacao.Users.Commands;
 using Exemplo.Aplicacao.Users.Query;
 using Exemplo.Dominio;
 using Exemplo.Persistence;
-using Exemplo.Repository;
+using Exemplo.Persistence.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

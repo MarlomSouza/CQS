@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Exemplo.Dominio;
-using Exemplo.Persistence;
 
-namespace Exemplo.Repository
+namespace Exemplo.Persistence.Repository
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {

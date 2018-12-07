@@ -14,9 +14,7 @@ namespace Exemplo.Aplicacao.Infraestrutura
 
         public TResult Execute<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>
         {
-        
-            if (query == null)
-                throw new ArgumentNullException("query");
+            if (query == null) throw new ArgumentNullException("query");
             try
             {
                 var handler = (IQueryHandler<TQuery, TResult>)serviceProvider.GetService(typeof(IQueryHandler<TQuery, TResult>));
