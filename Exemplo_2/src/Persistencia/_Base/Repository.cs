@@ -1,9 +1,8 @@
+using Dominio._Base;
+using Dominio.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dominio._Base;
-using Dominio.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace Persistencia._Base
 {
