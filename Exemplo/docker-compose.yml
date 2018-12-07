@@ -12,7 +12,7 @@ services:
       - db
   db:
     build:
-      context: ./DataBase
+      context: "./Persistence/DataBase/"
       dockerfile: db.Dockerfile
     ports:
      - "1400:1433"
