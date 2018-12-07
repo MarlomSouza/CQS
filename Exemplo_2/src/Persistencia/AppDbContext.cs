@@ -1,5 +1,4 @@
 using Dominio.Entities;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistencia
