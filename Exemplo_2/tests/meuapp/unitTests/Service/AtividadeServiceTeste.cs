@@ -19,7 +19,7 @@ namespace meuapp.unitTests.Service
             AtividadeBuilder.Novo().Build(), AtividadeBuilder.Novo().Build(),
             AtividadeBuilder.Novo().JaConcluida(true).Build(), AtividadeBuilder.Novo().Build(),
             AtividadeBuilder.Novo().Build(), AtividadeBuilder.Novo().Build()};
-        private object atividadeEsperada;
+
         private readonly AtividadeService _service;
         private readonly Mock<IRepository<Atividade>> _repository;
 
