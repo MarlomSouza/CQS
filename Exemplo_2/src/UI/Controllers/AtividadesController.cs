@@ -1,10 +1,11 @@
-﻿using Aplicacao.Atividades.Query;
+using Aplicacao.Atividades.Query;
 using Aplicacao.Infraestrutura.Query;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class AtividadesController : ControllerBase
     {
         private readonly IQueryDispatcher _dispatcher;
