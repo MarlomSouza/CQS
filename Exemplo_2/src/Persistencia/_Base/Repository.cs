@@ -23,7 +23,8 @@ namespace Persistencia._Base
 
         public void Alterar(TEntity entidade)
         {
-            throw new NotImplementedException();
+            _context.Set<TEntity>().Update(entidade);
+            _context.SaveChanges();
         }
 
         public IEnumerable<TEntity> Listar()

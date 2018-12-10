@@ -25,13 +25,28 @@ namespace UI.Controllers
             _commandDispatcher.Dispatch(criarAtividade);
         }
 
-        // GET
         [HttpGet]
-        [Route("/aberta")]
+        [Route("abertas")]
         public ActionResult<AtividadesDto> Get()
         {
-            var listarAtividade = new ListarAtividades();
+            var listarAtividade = new ListarAtividades() { Concluida = false };
             return _dispatcher.Execute<ListarAtividades, AtividadesDto>(listarAtividade);
+        }
+
+        [HttpGet]
+        [Route("concluidas")]
+        public ActionResult<AtividadesDto> GetAtividadeConcluida()
+        {
+            var listarAtividade = new ListarAtividades() { Concluida = true };
+            return _dispatcher.Execute<ListarAtividades, AtividadesDto>(listarAtividade);
+        }
+
+        [HttpPut]
+        [Route("{id}/concluir")]
+        public void PutConcluirAtividade(int id)
+        {
+            var concluirAtividade = new ConcluirAtividade(){ IdAtividade = id};
+            _commandDispatcher.Dispatch(concluirAtividade);
         }
     }
 }
