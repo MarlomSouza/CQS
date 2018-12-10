@@ -27,7 +27,8 @@ namespace UI.Controllers
 
         // GET
         [HttpGet]
-        public AtividadesDto Get()
+        [Route("/aberta")]
+        public ActionResult<AtividadesDto> Get()
         {
             var listarAtividade = new ListarAtividades();
             return _dispatcher.Execute<ListarAtividades, AtividadesDto>(listarAtividade);
