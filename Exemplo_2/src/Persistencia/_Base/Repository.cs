@@ -18,6 +18,7 @@ namespace Persistencia._Base
         public void Adicionar(TEntity entidade)
         {
             _context.Set<TEntity>().Add(entidade);
+            _context.SaveChanges();
         }
 
         public void Alterar(TEntity entidade)
