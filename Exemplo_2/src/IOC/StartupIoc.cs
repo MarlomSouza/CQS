@@ -24,6 +24,7 @@ namespace IOC
             services.AddScoped(typeof(ICommandDispatcher), typeof(CommandDispatcher));
             services.AddScoped(typeof(ICommandHandler<CriarAtividade>), typeof(CriarAtividadeHandler));
             services.AddScoped(typeof(ICommandHandler<ConcluirAtividade>), typeof(ConcluirAtividadeHandler));
+            services.AddScoped(typeof(ICommandHandler<AlterarAtividade>), typeof(AlterarAtividadeHandler));
             services.AddScoped(typeof(IQueryDispatcher), typeof(QueryDispatcher));
             services.AddScoped(typeof(IQueryHandler<ListarAtividades, AtividadesDto>), typeof(ListarAtividadesHandler));
         }

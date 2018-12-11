@@ -48,5 +48,12 @@ namespace UI.Controllers
             var concluirAtividade = new ConcluirAtividade(){ IdAtividade = id};
             _commandDispatcher.Dispatch(concluirAtividade);
         }
+
+        [HttpPut]
+        [Route("{id}")]
+        public void PutAtividade(int id ,AlterarAtividade alterarAtividade){
+            alterarAtividade.Id = id;
+            _commandDispatcher.Dispatch(alterarAtividade);
+        }
     }
 }

@@ -97,6 +97,31 @@ namespace meuapp.unitTests.ApplicationCore.Entities
         }
 
         [Fact]
+        public void Nao_deve_alterar_titulo_quando_ele_for_invalido()
+        {
+            //Given
+            const string tituloEsperado = "Meu titulo";
+            var atividade = new Atividade(tituloEsperado, descricao, TipoAtividade.Desenvolvimento, data);
+            //When
+            atividade.Alterar(null, descricao, TipoAtividade.Desenvolvimento, data);
+            //Then
+            Assert.Equal(tituloEsperado, atividade.Titulo);
+        }
+
+                [Fact]
+        public void Nao_deve_alterar_descricao_quando_ele_for_invalido()
+        {
+            //Given
+            const string descricaoEsperada = "Meu titulo";
+            var atividade = new Atividade(titulo, descricaoEsperada, TipoAtividade.Desenvolvimento, data);
+            //When
+            atividade.Alterar(titulo, null, TipoAtividade.Desenvolvimento, data);
+            //Then
+            Assert.Equal(descricaoEsperada, atividade.Descricao);
+        }
+
+
+        [Fact]
         public void Nao_deve_alterar_atividade_de_manutencao_urgente_na_sexta_feira_apos_as_13h()
         {
             //Given

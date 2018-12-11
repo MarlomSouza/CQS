@@ -34,8 +34,10 @@ namespace Dominio.Entities
             DomainException.Quando(ehTipoManutencaoUrgente && horarioInvalido,
                             "Não pode alterar atividade para manutenção urgente após as 13h da sexta-feira");
 
-            Titulo = titulo;
-            Descricao = descricao;
+            if(!string.IsNullOrEmpty(titulo))
+                Titulo = titulo;
+            if(!string.IsNullOrEmpty(descricao))
+                Descricao = descricao;
             Tipo = tipo;
         }
 

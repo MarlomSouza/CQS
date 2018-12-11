@@ -13,7 +13,6 @@ namespace Aplicacao.Infraestrutura.Command
 
         public void Dispatch<TCommand>(TCommand command) where TCommand : ICommand
         {
-
             if (command == null)
                 throw new ArgumentNullException("command");
 
