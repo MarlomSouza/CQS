@@ -29,6 +29,7 @@ namespace Aplicacao.Atividades.Query
         {
             return new AtividadeDto
             {
+                Id = atividade.Id,
                 Titulo = atividade.Titulo,
                 Descricao = atividade.Descricao,
                 Tipo = atividade.Tipo.ToString(),

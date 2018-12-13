@@ -45,15 +45,23 @@ namespace UI.Controllers
         [Route("{id}/concluir")]
         public void PutConcluirAtividade(int id)
         {
-            var concluirAtividade = new ConcluirAtividade(){ IdAtividade = id};
+            var concluirAtividade = new ConcluirAtividade() { IdAtividade = id };
             _commandDispatcher.Dispatch(concluirAtividade);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public void PutAtividade(int id ,AlterarAtividade alterarAtividade){
+        public void PutAtividade(int id, AlterarAtividade alterarAtividade)
+        {
             alterarAtividade.Id = id;
             _commandDispatcher.Dispatch(alterarAtividade);
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            var removerAtividade = new RemoverAtividade() { IdAtividade = id };
+            _commandDispatcher.Dispatch(removerAtividade);
         }
     }
 }

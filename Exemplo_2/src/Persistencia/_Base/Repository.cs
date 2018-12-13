@@ -42,6 +42,7 @@ namespace Persistencia._Base
         public void Remover(TEntity entidade)
         {
             _context.Set<TEntity>().Remove(entidade);
+            _context.SaveChanges();
         }
     }
 }

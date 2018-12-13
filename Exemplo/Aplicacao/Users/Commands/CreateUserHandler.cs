@@ -17,7 +17,6 @@ namespace Exemplo.Aplicacao.Users.Commands
         {
             var user = new User(createUser.Name, createUser.Email, createUser.Password);
             _repository.Save(user);
-            Console.WriteLine("SALVOU NO BANCO");
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using Dominio.Exceptions;
 
 namespace Aplicacao.Infraestrutura.Command
 {
@@ -21,6 +22,10 @@ namespace Aplicacao.Infraestrutura.Command
                 var handler = (ICommandHandler<TCommand>)_serviceProvider.GetService(typeof(ICommandHandler<TCommand>));
 
                 handler.Execute(command);
+            }
+            catch (DomainException ex)
+            {
+                throw new Exception($"{ex.Message}, handler for {typeof(TCommand).Name}");
             }
             catch (Exception ex)
             {
