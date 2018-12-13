@@ -1,40 +1,22 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-    <button type="button" class="" @click="printarLog()">Printar log</button>
-
-    <input type="text" v-model="this.nome">
-    <label>{{nome}}</label>
-
+  <div id="app" class="container">
+    <div class="col-md-12">
+      <!-- colocar uma tab aqui -->
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
-  created() {
+  created () {
     console.log('#################fui criado')
-  },
-  methods: {
-    printarLog() {
-       setTimeout(() => { this.nome = "alterado depois de 2 segundos!" }, 2000)
-       this.nome = "marlim"
-    }
-  },
-  data() {
-      return { nome: "Marlom"}
-  },
+  }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+ @import '../node_modules/bootstrap/scss/bootstrap.scss'
 </style>
+
