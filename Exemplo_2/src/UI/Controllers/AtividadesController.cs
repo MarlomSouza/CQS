@@ -50,6 +50,14 @@ namespace UI.Controllers
         }
 
         [HttpPut]
+        [Route("{id}/desconcluir")]
+        public void PutDesconcluirAtividade(int id)
+        {
+            var desconcluirAtividade = new DesconcluirAtividade() { IdAtividade = id };
+            _commandDispatcher.Dispatch(desconcluirAtividade);
+        }
+
+        [HttpPut]
         [Route("{id}")]
         public void PutAtividade(int id, AlterarAtividade alterarAtividade)
         {
