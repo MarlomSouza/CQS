@@ -6,26 +6,16 @@ namespace Aplicacao.Infraestrutura.Command
     public class CommandDispatcher : ICommandDispatcher
     {
         private readonly IServiceProvider _serviceProvider;
-
-        public CommandDispatcher(IServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
+        public CommandDispatcher(IServiceProvider serviceProvider) => _serviceProvider = serviceProvider;
 
         public void Dispatch<TCommand>(TCommand command) where TCommand : ICommand
         {
-            if (command == null)
-                throw new ArgumentNullException("command");
+            if (command == null) throw new ArgumentNullException("command");
 
             try
             {
                 var handler = (ICommandHandler<TCommand>)_serviceProvider.GetService(typeof(ICommandHandler<TCommand>));
-
                 handler.Execute(command);
-            }
-            catch (DomainException ex)
-            {
-                throw new Exception($"{ex.Message}, handler for {typeof(TCommand).Name}");
             }
             catch (Exception ex)
             {
