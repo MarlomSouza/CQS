@@ -11,12 +11,11 @@
 export default {
   name: 'App',
   created () {
-    console.log('#################fui criado')
+    console.log('Aqui É O APP')
   }
 }
 </script>
 
 <style lang="sass">
- @import '../node_modules/bootstrap/scss/bootstrap.scss'
+  @import '../node_modules/bootstrap/scss/bootstrap.scss'
 </style>
-
