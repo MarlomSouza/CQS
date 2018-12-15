@@ -15,7 +15,7 @@ namespace Dominio.Entities
         {
             DomainException.Quando(string.IsNullOrWhiteSpace(titulo),
                             "Não é permitido criar atividade com titulo inválido");
-            DomainException.Quando(dataCriacao.Date.DayOfWeek == DayOfWeek.Friday && dataCriacao.Hour >= 13,
+            DomainException.Quando(tipo == TipoAtividade.ManutencaoUrgente && dataCriacao.Date.DayOfWeek == DayOfWeek.Friday && dataCriacao.Hour >= 13,
                             "Não pode criar atividade do tipo manutenção urgente após as 13h da sexta-feira");
 
             Titulo = titulo;

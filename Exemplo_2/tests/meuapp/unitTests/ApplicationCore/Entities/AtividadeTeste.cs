@@ -108,7 +108,7 @@ namespace meuapp.unitTests.ApplicationCore.Entities
             Assert.Equal(tituloEsperado, atividade.Titulo);
         }
 
-                [Fact]
+        [Fact]
         public void Nao_deve_alterar_descricao_quando_ele_for_invalido()
         {
             //Given
@@ -202,6 +202,20 @@ namespace meuapp.unitTests.ApplicationCore.Entities
             //Then
             var erro = Assert.Throws<DomainException>(act);
             Assert.Equal(mensagemEsperada, erro.Message);
+        }
+
+        [Theory]
+        [InlineData(TipoAtividade.Manutencao)]
+        [InlineData(TipoAtividade.Atendimento)]
+        [InlineData(TipoAtividade.Desenvolvimento)]
+        public void Deve_criar_atividade_na_sexta_feita_apos_as_13h(TipoAtividade tipoEsperado)
+        {
+            //Given
+            var dataInvalida = new DateTime(2018, 11, 30, 14, 00, 00);
+            //When
+            var atividade = new Atividade(titulo, descricao, tipoEsperado, dataInvalida);
+            //Then
+            Assert.Equal(tipoEsperado, atividade.Tipo);
         }
 
         [Fact]
