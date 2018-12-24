@@ -34,6 +34,10 @@ export default {
   },
   created () {
     console.log('#################fui criado')
+
+    this.axios.get('/values').then(function (response) {
+      console.log(response)
+    })
     this.axios
       .get('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then(response => console.log('ola', response.data))
