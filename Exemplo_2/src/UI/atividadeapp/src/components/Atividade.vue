@@ -1,13 +1,28 @@
 <template>
-    <form action="POST" id="atividade" v-on:submit="salvar">
-        <div class="form-group">
-            <label for="titulo">Titulo</label>
-            <input id="titulo" type="text" v-model="titulo" class="form-control"/>
-        </div>
-        <div class="form-group">
-            <label for="descricao">Descricao</label>
-            <textarea name="descricao" v-model="descricao" class="form-control" id="descricao" rows="3"/>
-        </div>
+  <form
+    action="POST"
+    id="atividade"
+    v-on:submit="salvar"
+  >
+    <div class="form-group">
+      <label for="titulo">Titulo</label>
+      <input
+        id="titulo"
+        type="text"
+        v-model="titulo"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="descricao">Descricao</label>
+      <textarea
+        name="descricao"
+        v-model="descricao"
+        class="form-control"
+        id="descricao"
+        rows="3"
+      />
+      </div>
         <div class="form-group">
             <label for="tipo">Selecione o tipo de atividade</label>
             <select  class="form-control" v-model="tipo" name="Tipo" id="tipo">
@@ -34,18 +49,14 @@ export default {
   },
   created () {
     console.log('#################fui criado')
-
     this.axios.get('/values').then(function (response) {
       console.log(response)
     })
-    this.axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => console.log('ola', response.data))
   },
   methods: {
     salvar () {
       event.preventDefault()
-      let atividade = {Titulo: this.titulo, Descricao: this.descricao, Tipo: this.tipo}
+      let atividade = { Titulo: this.titulo, Descricao: this.descricao, Tipo: this.tipo }
       console.log('Clicou em salvar', atividade)
     }
   }
