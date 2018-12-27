@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Atividade from '@/components/Atividade'
+import Criar from '@/components/Criar'
 import Listar from '@/components/Listar'
 
 Vue.use(Router)
@@ -8,12 +8,12 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/Atividade',
-      name: 'Atividade',
-      component: Atividade
+      path: '/Criar',
+      name: 'Criar',
+      component: Criar
     },
     {
-      path: '/',
+      path: '/Listar',
       name: 'Listar',
       component: Listar
     }

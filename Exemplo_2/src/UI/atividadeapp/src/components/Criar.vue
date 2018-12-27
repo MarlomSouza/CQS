@@ -2,10 +2,10 @@
   <form
     action="POST"
     id="atividade"
-    v-on:submit="salvar"
+    @submit.prevent="salvar"
   >
     <div class="form-group">
-      <label for="titulo">Titulo</label>
+      <label for="titulo">Título</label>
       <input
         id="titulo"
         type="text"
@@ -14,7 +14,7 @@
       />
     </div>
     <div class="form-group">
-      <label for="descricao">Descricao</label>
+      <label for="descricao">Descrição</label>
       <textarea
         name="descricao"
         v-model="descricao"
@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: 'Atividade',
+  name: 'Criar',
   data () {
     let atividade = {
       titulo: '',
@@ -47,17 +47,13 @@ export default {
     }
     return atividade
   },
-  created () {
-    console.log('#################fui criado')
-    this.axios.get('/values').then(function (response) {
-      console.log(response)
-    })
-  },
   methods: {
     salvar () {
-      event.preventDefault()
-      let atividade = { Titulo: this.titulo, Descricao: this.descricao, Tipo: this.tipo }
-      console.log('Clicou em salvar', atividade)
+      this.axios.post('/atividades', {
+        Titulo: this.titulo, Descricao: this.descricao, Tipo: this.tipo
+      }).then(response => {
+        console.log(response)
+      })
     }
   }
 }
