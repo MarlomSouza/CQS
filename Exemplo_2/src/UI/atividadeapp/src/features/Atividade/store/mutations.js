@@ -7,7 +7,13 @@ const REMOVER_ATIVIDADE = (state, index) => {
   state.atividades.splice(index, 1)
 }
 
+const SET_ATIVIDADE = (state, atividade) => {
+  state.atividade = { ...atividade }
+  console.log('state.atividade', state.atividade)
+}
+
 export default {
   SET_ATIVIDADES,
+  SET_ATIVIDADE,
   REMOVER_ATIVIDADE
 }

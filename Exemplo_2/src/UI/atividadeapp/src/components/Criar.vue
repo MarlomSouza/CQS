@@ -9,7 +9,7 @@
       <input
         id="titulo"
         type="text"
-        v-model="titulo"
+        v-model="atividade.titulo"
         class="form-control"
       />
     </div>
@@ -17,7 +17,7 @@
       <label for="descricao">Descrição</label>
       <textarea
         name="descricao"
-        v-model="descricao"
+        v-model="atividade.descricao"
         class="form-control"
         id="descricao"
         rows="3"
@@ -25,7 +25,7 @@
       </div>
         <div class="form-group">
             <label for="tipo">Selecione o tipo de atividade</label>
-            <select  class="form-control" v-model="tipo" name="Tipo" id="tipo">
+            <select  class="form-control" v-model="atividade.tipo" name="Tipo" id="tipo">
                 <option value="ManutencaoUrgente" selected>Manutencao urgente</option>
                 <option value="Manutencao">Manutencao</option>
                 <option value="Atendimento">Atendimento</option>
@@ -37,24 +37,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'Criar',
   data () {
-    let atividade = {
-      titulo: '',
-      descricao: '',
-      tipo: ''
-    }
+    let atividade = {}
     return atividade
   },
   methods: {
-    salvar () {
-      this.axios.post('/atividades', {
-        Titulo: this.titulo, Descricao: this.descricao, Tipo: this.tipo
-      }).then(response => {
-        console.log(response)
-      })
-    }
+  },
+  computed: {
+    ...mapGetters('Atividade', ['atividade'])
   }
 }
 </script>

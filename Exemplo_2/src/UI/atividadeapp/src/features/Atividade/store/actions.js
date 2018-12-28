@@ -16,15 +16,11 @@ const setAtividades = ({ commit }, obj) => {
 const removerAtividades = ({ commit }, atividade) => {
   commit('REMOVER_ATIVIDADE', atividade)
 }
-const criarAtividades = ({ commit }, obj) => {
-  axios.post('/atividades', {
-    obj
-  }).then(response => {
-    console.log(response)
-  })
+const setAtividade = ({ commit }, obj) => {
+  commit('SET_ATIVIDADE', obj)
 }
 export default {
   setAtividades,
-  criarAtividades,
+  setAtividade,
   removerAtividades
 }

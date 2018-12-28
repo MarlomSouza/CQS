@@ -14,7 +14,7 @@
             >
               <listar
                 :atividade="atividade"
-                @editar-atividade="editar"
+                @editar-atividade="editar(atividade)"
                 @remover-atividade="remover(index)"
               ></listar>
             </div>
@@ -36,12 +36,12 @@ import listar from '@/components/Listar'
 export default {
   components: { criar, listar },
   methods: {
-    ...mapActions('Atividade', ['setAtividades', 'removerAtividades']),
+    ...mapActions('Atividade', ['setAtividades', 'removerAtividades', 'setAtividade']),
     remover: function (index) {
       this.removerAtividades(index)
     },
-    editar: atividade => {
-      console.log(atividade)
+    editar: function (atividade) {
+      this.setAtividade(atividade)
     }
   },
   mounted () {
