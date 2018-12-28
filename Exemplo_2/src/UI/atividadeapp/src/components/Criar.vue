@@ -2,7 +2,7 @@
   <form
     action="POST"
     id="atividade"
-    @submit.prevent="salvar"
+    @submit.prevent="salvar(atividade)"
   >
     <div class="form-group">
       <label for="titulo">Título</label>
@@ -41,10 +41,12 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Criar',
   data () {
-    let atividade = {}
-    return atividade
+    return {}
   },
   methods: {
+    salvar: function (atividade) {
+      this.$emit('salvar-atividade', atividade)
+    }
   },
   computed: {
     ...mapGetters('Atividade', ['atividade'])

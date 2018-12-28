@@ -6,21 +6,25 @@ let axios = Axios.create({
 })
 
 const setAtividades = ({ commit }, obj) => {
-  console.log('o valor eh =>', obj)
   axios.get('/atividades/abertas').then(response => {
     const atividades = response.data.atividades
     commit('SET_ATIVIDADES', { atividades })
   })
 }
-
 const removerAtividades = ({ commit }, atividade) => {
   commit('REMOVER_ATIVIDADE', atividade)
 }
 const setAtividade = ({ commit }, obj) => {
   commit('SET_ATIVIDADE', obj)
 }
+const salvarAtividade = ({ commit }, obj) => {
+  commit('SET_ATIVIDADE', {})
+  commit('INCREMENTAR_ATIVIDADES', obj)
+}
+
 export default {
   setAtividades,
   setAtividade,
+  salvarAtividade,
   removerAtividades
 }

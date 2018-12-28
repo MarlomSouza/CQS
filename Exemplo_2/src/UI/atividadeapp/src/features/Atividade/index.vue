@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <criar></criar>
+        <criar @salvar-atividade="salvar"></criar>
       </div>
     </div>
   </div>
@@ -36,12 +36,15 @@ import listar from '@/components/Listar'
 export default {
   components: { criar, listar },
   methods: {
-    ...mapActions('Atividade', ['setAtividades', 'removerAtividades', 'setAtividade']),
+    ...mapActions('Atividade', ['setAtividades', 'removerAtividades', 'setAtividade', 'salvarAtividade']),
     remover: function (index) {
       this.removerAtividades(index)
     },
     editar: function (atividade) {
       this.setAtividade(atividade)
+    },
+    salvar: function (atividade) {
+      this.salvarAtividade(atividade)
     }
   },
   mounted () {
