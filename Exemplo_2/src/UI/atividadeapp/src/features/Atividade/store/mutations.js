@@ -1,10 +1,11 @@
+import Vue from 'vue'
 
 const SET_ATIVIDADES = (state, obj) => {
   state.atividades = obj.atividades
 }
 
-const INCREMENTAR_ATIVIDADES = (state, obj) => {
-  state.atividades.push(obj)
+const INCREMENTAR_ATIVIDADES = (state, atividade) => {
+  state.atividades.push(atividade)
 }
 
 const REMOVER_ATIVIDADE = (state, index) => {
@@ -13,12 +14,17 @@ const REMOVER_ATIVIDADE = (state, index) => {
 
 const SET_ATIVIDADE = (state, atividade) => {
   state.atividade = { ...atividade }
-  console.log('state.atividade', state.atividade)
+}
+
+const ATUALIZAR_ATIVIDADES = (state, atividade) => {
+  let index = state.atividades.findIndex(a => a.id === atividade.id)
+  Vue.set(state.atividades, index, atividade)
 }
 
 export default {
   SET_ATIVIDADES,
   SET_ATIVIDADE,
   REMOVER_ATIVIDADE,
-  INCREMENTAR_ATIVIDADES
+  INCREMENTAR_ATIVIDADES,
+  ATUALIZAR_ATIVIDADES
 }

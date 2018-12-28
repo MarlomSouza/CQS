@@ -14,7 +14,7 @@
             >
               <listar
                 :atividade="atividade"
-                @editar-atividade="editar(atividade)"
+                @editar-atividade="editar"
                 @remover-atividade="remover(index)"
               ></listar>
             </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import criar from '@/components/Criar'
 import listar from '@/components/Listar'
 
@@ -51,8 +51,7 @@ export default {
     this.setAtividades()
   },
   computed: {
-    ...mapState('Atividade', ['atividades', 'atividades']),
-    ...mapGetters('Atividade', ['quantidade'])
+    ...mapGetters('Atividade', ['quantidade', 'atividades'])
   }
 }
 </script>

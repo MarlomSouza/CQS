@@ -8,6 +8,7 @@ let axios = Axios.create({
 const setAtividades = ({ commit }, obj) => {
   axios.get('/atividades/abertas').then(response => {
     const atividades = response.data.atividades
+
     commit('SET_ATIVIDADES', { atividades })
   })
 }
@@ -18,8 +19,12 @@ const setAtividade = ({ commit }, obj) => {
   commit('SET_ATIVIDADE', obj)
 }
 const salvarAtividade = ({ commit }, obj) => {
+  if (!obj.id) {
+    commit('INCREMENTAR_ATIVIDADES', obj)
+  } else {
+    commit('ATUALIZAR_ATIVIDADES', obj)
+  }
   commit('SET_ATIVIDADE', {})
-  commit('INCREMENTAR_ATIVIDADES', obj)
 }
 
 export default {

@@ -38,6 +38,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
 export default {
   name: 'Criar',
   data () {
