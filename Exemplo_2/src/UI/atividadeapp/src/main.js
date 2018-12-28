@@ -3,19 +3,21 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
+import store from './store'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+library.add(faEdit, faTrash)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = true
-const instance = axios.create({
-  baseURL: 'https://localhost:5001/api/',
-  timeout: 1000
-})
-Vue.prototype.axios = instance
 
-/* eslint-disable no-new */
+// eslint-disable-next-line no-new
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
