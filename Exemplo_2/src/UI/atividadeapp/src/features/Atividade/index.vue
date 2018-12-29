@@ -12,11 +12,12 @@
               class="col-md-4"
               :key="atividade.id"
             >
-              <listar
+              <card
                 :atividade="atividade"
-                @editar-atividade="editar"
-                @remover-atividade="remover(index)"
-              ></listar>
+                @editar="editar"
+                @remover="remover(index)"
+                @concluir="concluir(atividade, index)"
+              ></card>
             </div>
           </template>
         </div>
@@ -31,12 +32,18 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import criar from '@/components/Criar'
-import listar from '@/components/Listar'
+import card from '@/components/Card'
 
 export default {
-  components: { criar, listar },
+  components: { criar, card },
   methods: {
-    ...mapActions('Atividade', ['setAtividades', 'removerAtividades', 'setAtividade', 'salvarAtividade']),
+    ...mapActions('Atividade',
+      ['setAtividades',
+        'removerAtividades',
+        'setAtividade',
+        'salvarAtividade',
+        'concluirAtividade'
+      ]),
     remover: function (index) {
       this.removerAtividades(index)
     },
@@ -45,6 +52,9 @@ export default {
     },
     salvar: function (atividade) {
       this.salvarAtividade(atividade)
+    },
+    concluir: function (atividade, index) {
+      this.concluirAtividade({ atividade, index })
     }
   },
   mounted () {

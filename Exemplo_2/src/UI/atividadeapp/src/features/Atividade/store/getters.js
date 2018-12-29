@@ -7,7 +7,8 @@ const atividade = state => {
     id: state.atividade.id,
     titulo: state.atividade.titulo,
     descricao: state.atividade.descricao,
-    tipo: state.atividade.tipo
+    tipo: state.atividade.tipo,
+    concluida: state.atividade.concluida
   }
   return atividade
 }

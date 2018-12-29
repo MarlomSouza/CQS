@@ -5,24 +5,32 @@ let axios = Axios.create({
   timeout: 1000
 })
 
-const setAtividades = ({ commit }, obj) => {
+const setAtividades = ({ commit }, atividade) => {
   axios.get('/atividades/abertas').then(response => {
     const atividades = response.data.atividades
 
     commit('SET_ATIVIDADES', { atividades })
   })
 }
+
+const setAtividade = ({ commit }, atividade) => {
+  commit('SET_ATIVIDADE', atividade)
+}
+
 const removerAtividades = ({ commit }, atividade) => {
   commit('REMOVER_ATIVIDADE', atividade)
 }
-const setAtividade = ({ commit }, obj) => {
-  commit('SET_ATIVIDADE', obj)
+
+const concluirAtividade = ({ commit }, { atividade, index }) => {
+  atividade.concluida = true
+  commit('CONCLUIR_ATIVIDADE', { atividade, index })
 }
-const salvarAtividade = ({ commit }, obj) => {
-  if (!obj.id) {
-    commit('INCREMENTAR_ATIVIDADES', obj)
+
+const salvarAtividade = ({ commit }, atividade) => {
+  if (!atividade.id) {
+    commit('INCREMENTAR_ATIVIDADES', atividade)
   } else {
-    commit('ATUALIZAR_ATIVIDADES', obj)
+    commit('ATUALIZAR_ATIVIDADES', atividade)
   }
   commit('SET_ATIVIDADE', {})
 }
@@ -31,5 +39,6 @@ export default {
   setAtividades,
   setAtividade,
   salvarAtividade,
-  removerAtividades
+  removerAtividades,
+  concluirAtividade
 }

@@ -16,6 +16,10 @@ const SET_ATIVIDADE = (state, atividade) => {
   state.atividade = { ...atividade }
 }
 
+const CONCLUIR_ATIVIDADE = (state, { atividade, index }) => {
+  Vue.set(state.atividades, index, atividade)
+}
+
 const ATUALIZAR_ATIVIDADES = (state, atividade) => {
   let index = state.atividades.findIndex(a => a.id === atividade.id)
   Vue.set(state.atividades, index, atividade)
@@ -26,5 +30,6 @@ export default {
   SET_ATIVIDADE,
   REMOVER_ATIVIDADE,
   INCREMENTAR_ATIVIDADES,
-  ATUALIZAR_ATIVIDADES
+  ATUALIZAR_ATIVIDADES,
+  CONCLUIR_ATIVIDADE
 }

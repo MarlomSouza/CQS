@@ -5,11 +5,11 @@ import App from './App'
 import router from './router'
 import store from './store'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
-library.add(faEdit, faTrash)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+library.add(faEdit, faTrash, faCheck)
+Vue.component('icon', FontAwesomeIcon)
 
 Vue.config.productionTip = true
 
