@@ -5,8 +5,10 @@ let axios = Axios.create({
   timeout: 1000
 })
 
-const setAtividades = ({ commit }, atividade) => {
-  axios.get('/atividades/abertas').then(response => {
+const setAtividades = ({ commit }, atividadeConcluida) => {
+  let url = '/atividades/abertas'
+  if (atividadeConcluida) { url = '/atividades/concluidas' }
+  axios.get(url).then(response => {
     const atividades = response.data.atividades
 
     commit('SET_ATIVIDADES', { atividades })

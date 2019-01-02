@@ -5,6 +5,7 @@
   >
     <div class="row">
       <div class="col-md-9">
+        <navbar @obter="obter"/>
         {{quantidade}}
         <div class="row">
           <template v-for="(atividade, index) in atividades">
@@ -33,16 +34,19 @@
 import { mapActions, mapGetters } from 'vuex'
 import criar from '@/components/Criar'
 import card from '@/components/Card'
+import navbar from '@/components/Navbar'
 
 export default {
-  components: { criar, card },
+  components: { criar, card, navbar },
+
   methods: {
     ...mapActions('Atividade',
       ['setAtividades',
         'removerAtividades',
         'setAtividade',
         'salvarAtividade',
-        'concluirAtividade'
+        'concluirAtividade',
+        'obterAtividade'
       ]),
     remover: function (index) {
       this.removerAtividades(index)
@@ -55,6 +59,9 @@ export default {
     },
     concluir: function (atividade, index) {
       this.concluirAtividade({ atividade, index })
+    },
+    obter: function (atividadeConcluida) {
+      this.setAtividades(atividadeConcluida)
     }
   },
   mounted () {

@@ -1,22 +1,23 @@
 <template>
   <div>
-    <div
-      class="tamanho card mb-3 card "
-      :class="[estaConcluido? concluidoClasse: Classe]"
-    >
-      <div class="card-header">
+    <div class="tamanho card mb-3 card ">
+      <div
+        class="card-header"
+        :class="[estaConcluido? concluidoClasse: Classe]"
+      >
         <h5 class="card-title">{{atividade.titulo}}</h5>
-
         <icon
+          class="ponteiro"
           icon="edit"
           @click="editar"
         />
         <icon
+          class="ponteiro"
           @click="remover"
           icon="trash"
         />
-
         <icon
+          class="ponteiro"
           @click="concluir"
           icon="check"
         />
@@ -42,7 +43,7 @@ export default {
   },
   data () {
     return {
-      concluidoClasse: 'text-white bg-success',
+      concluidoClasse: 'text-white teal',
       Classe: 'bg-light'
     }
   },
@@ -64,6 +65,8 @@ export default {
   }
 }
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
 .tamanho  { max-width: 18rem }
+.ponteiro { cursor: pointer; }
+.teal { background: #20c997  }
 </style>
