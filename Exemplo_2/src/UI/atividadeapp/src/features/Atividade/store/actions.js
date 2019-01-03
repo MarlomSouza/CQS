@@ -1,13 +1,13 @@
 import Axios from 'axios'
 
 let axios = Axios.create({
-  baseURL: 'https://localhost:5001/api/',
+  baseURL: 'https://localhost:5001/api/atividades',
   timeout: 1000
 })
 
 const setAtividades = ({ commit }, atividadeConcluida) => {
-  let url = '/atividades/abertas'
-  if (atividadeConcluida) { url = '/atividades/concluidas' }
+  let url = '/abertas'
+  if (atividadeConcluida) { url = '/concluidas' }
   axios.get(url).then(response => {
     const atividades = response.data.atividades
 
@@ -30,9 +30,9 @@ const concluirAtividade = ({ commit }, { atividade, index }) => {
 
 const salvarAtividade = ({ commit }, atividade) => {
   if (!atividade.id) {
-    commit('INCREMENTAR_ATIVIDADES', atividade)
+    axios.post('', atividade).then(() => commit('INCREMENTAR_ATIVIDADES', atividade))
   } else {
-    commit('ATUALIZAR_ATIVIDADES', atividade)
+    axios.put(`${atividade.id}`, atividade).then(() => commit('ATUALIZAR_ATIVIDADES', atividade))
   }
   commit('SET_ATIVIDADE', {})
 }
