@@ -60,8 +60,8 @@ export default {
     concluir: function (atividade, index) {
       this.concluirAtividade({ atividade, index })
     },
-    obter: function (atividadeConcluida) {
-      this.setAtividades(atividadeConcluida)
+    obter: function () {
+      this.setAtividades()
     }
   },
   mounted () {

@@ -6,7 +6,6 @@ let axios = Axios.create({
 })
 
 const setAtividades = ({ commit, state }) => {
-  console.log({ ...state })
   let url = '/abertas'
   if (state.atividadeConcluida) { url = '/concluidas' }
   axios.get(url).then(response => {

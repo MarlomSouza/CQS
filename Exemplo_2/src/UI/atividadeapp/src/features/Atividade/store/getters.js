@@ -1,6 +1,6 @@
 const quantidade = state => state.atividades.length
 
-const atividades = state => state.atividades
+const atividades = state => state.atividades.filter(atividade => atividade.concluida === state.atividadeConcluida)
 
 const atividade = state => {
   let atividade = {
@@ -8,7 +8,7 @@ const atividade = state => {
     titulo: state.atividade.titulo,
     descricao: state.atividade.descricao,
     tipo: state.atividade.tipo,
-    concluida: state.atividade.concluida
+    concluida: state.atividadeConcluida
   }
   return atividade
 }

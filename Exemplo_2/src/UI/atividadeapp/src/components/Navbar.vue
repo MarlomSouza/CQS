@@ -27,6 +27,7 @@ export default {
     ...mapMutations('Atividade', ['ATUALIZAR_TAB']),
     alterarTab: function (atividadeConcluida) {
       this.ATUALIZAR_TAB(atividadeConcluida)
+      this.$emit('obter')
     }
   },
   computed: {
