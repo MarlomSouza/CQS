@@ -20,15 +20,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   methods: {
-
+    ...mapMutations('Atividade', ['ATUALIZAR_TAB']),
     alterarTab: function (atividadeConcluida) {
-      console.log(this.atividadeConcluida)
-      this.atividadeConcluida = atividadeConcluida
-      this.$emit('obter', atividadeConcluida)
+      this.ATUALIZAR_TAB(atividadeConcluida)
     }
   },
   computed: {
