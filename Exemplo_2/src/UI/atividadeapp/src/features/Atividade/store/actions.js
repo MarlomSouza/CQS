@@ -24,8 +24,7 @@ const removerAtividades = ({ commit }, { atividade, index }) => {
 }
 
 const concluirAtividade = ({ commit }, { atividade, index }) => {
-  atividade.concluida = true
-  commit('CONCLUIR_ATIVIDADE', { atividade, index })
+  axios.put(`${atividade.id}/concluir`).then(() => commit('CONCLUIR_ATIVIDADE', { atividade, index }))
 }
 
 const salvarAtividade = ({ commit }, atividade) => {

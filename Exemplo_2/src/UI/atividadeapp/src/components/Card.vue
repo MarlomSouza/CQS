@@ -55,6 +55,7 @@ export default {
       this.$emit('remover')
     },
     concluir: function () {
+      this.atividade.concluida = true
       this.$emit('concluir', this.atividade)
     }
   },
