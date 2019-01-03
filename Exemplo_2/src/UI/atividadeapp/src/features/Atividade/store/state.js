@@ -1,4 +1,5 @@
 export default {
   atividades: [],
-  atividade: {}
+  atividade: {},
+  atividadeConcluida: false
 }

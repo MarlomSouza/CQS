@@ -17,6 +17,7 @@ const SET_ATIVIDADE = (state, atividade) => {
 }
 
 const CONCLUIR_ATIVIDADE = (state, { atividade, index }) => {
+  atividade.concluida = true
   Vue.set(state.atividades, index, atividade)
 }
 

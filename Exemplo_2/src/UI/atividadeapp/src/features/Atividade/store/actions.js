@@ -5,9 +5,10 @@ let axios = Axios.create({
   timeout: 1000
 })
 
-const setAtividades = ({ commit }, atividadeConcluida) => {
+const setAtividades = ({ commit, state }) => {
+  console.log({ ...state })
   let url = '/abertas'
-  if (atividadeConcluida) { url = '/concluidas' }
+  if (state.atividadeConcluida) { url = '/concluidas' }
   axios.get(url).then(response => {
     const atividades = response.data.atividades
 
@@ -24,7 +25,10 @@ const removerAtividades = ({ commit }, { atividade, index }) => {
 }
 
 const concluirAtividade = ({ commit }, { atividade, index }) => {
-  axios.put(`${atividade.id}/concluir`).then(() => commit('CONCLUIR_ATIVIDADE', { atividade, index }))
+  axios.put(`${atividade.id}/concluir`)
+    .then(() => commit('CONCLUIR_ATIVIDADE', { atividade, index }))
+    .then(() => commit('ATUALIZAR_ATIVIDADES', atividade))
+    .catch(erro => console.log('erro', erro.response))
 }
 
 const salvarAtividade = ({ commit }, atividade) => {

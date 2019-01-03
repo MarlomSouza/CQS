@@ -20,21 +20,19 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
-  data: function () {
-    return {
-      atividadeConcluida: false
-    }
-  },
   methods: {
-    ...mapActions('Atividade', ['setAtividades']),
 
     alterarTab: function (atividadeConcluida) {
+      console.log(this.atividadeConcluida)
       this.atividadeConcluida = atividadeConcluida
       this.$emit('obter', atividadeConcluida)
     }
+  },
+  computed: {
+    ...mapState('Atividade', ['atividadeConcluida'])
   }
 }
 </script>
