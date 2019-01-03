@@ -16,7 +16,7 @@
               <card
                 :atividade="atividade"
                 @editar="editar"
-                @remover="remover(index)"
+                @remover="remover(atividade,index)"
                 @concluir="concluir(atividade, index)"
               ></card>
             </div>
@@ -48,8 +48,8 @@ export default {
         'concluirAtividade',
         'obterAtividade'
       ]),
-    remover: function (index) {
-      this.removerAtividades(index)
+    remover: function (atividade, index) {
+      this.removerAtividades({ atividade, index })
     },
     editar: function (atividade) {
       this.setAtividade(atividade)

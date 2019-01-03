@@ -19,8 +19,8 @@ const setAtividade = ({ commit }, atividade) => {
   commit('SET_ATIVIDADE', atividade)
 }
 
-const removerAtividades = ({ commit }, atividade) => {
-  commit('REMOVER_ATIVIDADE', atividade)
+const removerAtividades = ({ commit }, { atividade, index }) => {
+  axios.delete(`${atividade.id}`).then(() => commit('REMOVER_ATIVIDADE', index))
 }
 
 const concluirAtividade = ({ commit }, { atividade, index }) => {
