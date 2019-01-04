@@ -9,7 +9,12 @@ import { faEdit, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Toasted from 'vue-toasted'
 
-Vue.use(Toasted)
+Vue.use(Toasted, {
+  theme: 'outline',
+  iconPack: FontAwesomeIcon,
+  position: 'bottom-right',
+  duration: 5000
+})
 
 library.add(faEdit, faTrash, faCheck)
 Vue.component('icon', FontAwesomeIcon)

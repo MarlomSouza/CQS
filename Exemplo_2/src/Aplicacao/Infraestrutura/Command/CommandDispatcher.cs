@@ -17,6 +17,10 @@ namespace Aplicacao.Infraestrutura.Command
                 var handler = (ICommandHandler<TCommand>)_serviceProvider.GetService(typeof(ICommandHandler<TCommand>));
                 handler.Execute(command);
             }
+             catch (DomainException ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
             catch (Exception ex)
             {
                 throw new Exception(string.Format("Can not resolve handler for ICommandHandler<{0}>", typeof(TCommand).Name), ex);

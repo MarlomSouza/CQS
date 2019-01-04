@@ -21,14 +21,20 @@ const setAtividade = ({ commit }, atividade) => {
 }
 
 const removerAtividades = ({ commit }, { atividade, index }) => {
-  axios.delete(`${atividade.id}`).then(() => commit('REMOVER_ATIVIDADE', index))
+  axios.delete(`${atividade.id}`)
+    .then(() => commit('REMOVER_ATIVIDADE', index))
+    .then(() => Vue.toasted.show('Atividade removida'))
+    .catch(erro => Vue.toasted.show(erro.response))
 }
 
 const concluirAtividade = ({ commit }, { atividade, index }) => {
   axios.put(`${atividade.id}/concluir`)
     .then(() => commit('CONCLUIR_ATIVIDADE', { atividade, index }))
     .then(() => commit('ATUALIZAR_ATIVIDADES', atividade))
-    .catch(erro => console.log('erro', erro.response))
+    .catch(erro => Vue.toasted.show(erro.response, {
+      icon: {
+        name: 'fal fa-check fa-spin fa-fw'
+      } }))
 }
 
 const salvarAtividade = ({ commit }, atividade) => {
@@ -37,7 +43,9 @@ const salvarAtividade = ({ commit }, atividade) => {
   } else {
     axios.put(`${atividade.id}`, atividade).then(() => commit('ATUALIZAR_ATIVIDADES', atividade))
   }
-  Vue.toasted.show('Atividade salva')
+  Vue.toasted.show('Atividade salva', { icon: {
+    name: 'Check'
+  } })
   commit('SET_ATIVIDADE', {})
 }
 
