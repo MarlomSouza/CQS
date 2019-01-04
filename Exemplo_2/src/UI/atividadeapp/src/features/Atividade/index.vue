@@ -26,6 +26,7 @@
       <div class="col-md-3">
         <criar @salvar-atividade="salvar"></criar>
       </div>
+      <button @click="alerta">Botao</button>
     </div>
   </div>
 </template>
@@ -48,6 +49,11 @@ export default {
         'concluirAtividade',
         'obterAtividade'
       ]),
+
+    ...mapActions('Alerta', ['createOne']),
+    alerta: function () {
+      this.createOne('mensagem')
+    },
     remover: function (atividade, index) {
       this.removerAtividades({ atividade, index })
     },
