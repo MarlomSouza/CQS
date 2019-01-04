@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import Vue from 'vue'
 
 let axios = Axios.create({
   baseURL: 'https://localhost:5001/api/atividades',
@@ -10,8 +11,8 @@ const setAtividades = ({ commit, state }) => {
   if (state.atividadeConcluida) { url = '/concluidas' }
   axios.get(url).then(response => {
     const atividades = response.data.atividades
-
     commit('SET_ATIVIDADES', { atividades })
+    Vue.toasted.show('Atividade Obtida')
   })
 }
 
@@ -36,6 +37,7 @@ const salvarAtividade = ({ commit }, atividade) => {
   } else {
     axios.put(`${atividade.id}`, atividade).then(() => commit('ATUALIZAR_ATIVIDADES', atividade))
   }
+  Vue.toasted.show('Atividade salva')
   commit('SET_ATIVIDADE', {})
 }
 

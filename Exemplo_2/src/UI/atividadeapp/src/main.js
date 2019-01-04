@@ -7,6 +7,9 @@ import store from './store'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faEdit, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import Toasted from 'vue-toasted'
+
+Vue.use(Toasted)
 
 library.add(faEdit, faTrash, faCheck)
 Vue.component('icon', FontAwesomeIcon)
