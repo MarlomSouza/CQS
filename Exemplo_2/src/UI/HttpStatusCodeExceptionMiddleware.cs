@@ -23,7 +23,7 @@ namespace UI
             {
                 await _next(context);
             }
-            catch (Exception ex)
+            catch (HttpStatusCodeException ex)
             {
                 if (context.Response.HasStarted)
                 {
@@ -32,8 +32,8 @@ namespace UI
                 }
                 
                 context.Response.Clear();
-                context.Response.StatusCode = StatusCodes.Status400BadRequest;
-                context.Response.ContentType =  "application/json";
+                context.Response.StatusCode = ex.StatusCode;
+                context.Response.ContentType =  ex.ContentType;
                 
 
                 await context.Response.WriteAsync(ex.Message);
