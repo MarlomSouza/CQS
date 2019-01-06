@@ -1,4 +1,5 @@
 using System;
+using Aplicacao.Excepctions;
 using Dominio.Exceptions;
 
 namespace Aplicacao.Infraestrutura.Command
@@ -17,9 +18,9 @@ namespace Aplicacao.Infraestrutura.Command
                 var handler = (ICommandHandler<TCommand>)_serviceProvider.GetService(typeof(ICommandHandler<TCommand>));
                 handler.Execute(command);
             }
-             catch (DomainException ex)
+            catch (DomainException ex)
             {
-                throw new Exception(ex.Message, ex);
+                throw new HttpStatusCodeException(ex.Message);
             }
             catch (Exception ex)
             {

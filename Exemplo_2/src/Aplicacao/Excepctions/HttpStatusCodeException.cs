@@ -1,11 +1,11 @@
 using System;
 using Newtonsoft.Json.Linq;
 
-namespace UI
+namespace Aplicacao.Excepctions
 {
     public class HttpStatusCodeException : Exception
     {
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = 500;
         public string ContentType { get; set; } = @"text/plain";
         public HttpStatusCodeException(int statusCode) => this.StatusCode = statusCode;
 
@@ -16,5 +16,6 @@ namespace UI
         public HttpStatusCodeException(int statusCode, JObject errorObject) : this(statusCode, errorObject.ToString())
         => this.ContentType = @"application/json";
 
+        public HttpStatusCodeException(string message) : base(message) { }
     }
 }

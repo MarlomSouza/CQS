@@ -1,4 +1,5 @@
 using System;
+using Dominio.Exceptions;
 
 namespace Aplicacao.Infraestrutura.Query
 {
@@ -21,6 +22,10 @@ namespace Aplicacao.Infraestrutura.Query
                 var handler = (IQueryHandler<TQuery, TResult>)_serviceProvider.GetService(typeof(IQueryHandler<TQuery, TResult>));
 
                 return handler.Execute(query);
+            }
+            catch (DomainException ex)
+            {
+                throw new ApplicationException(ex.Message, ex);
             }
             catch (Exception ex)
             {
