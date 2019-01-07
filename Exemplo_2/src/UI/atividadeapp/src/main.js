@@ -9,6 +9,8 @@ import { faEdit, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Toasted from 'vue-toasted'
 
+import '../node_modules/nprogress/nprogress.css'
+
 Vue.use(Toasted, {
   theme: 'outline',
   iconPack: FontAwesomeIcon,
