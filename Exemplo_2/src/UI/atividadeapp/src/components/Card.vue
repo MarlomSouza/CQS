@@ -86,6 +86,5 @@ export default {
 </script>
 <style lang="sass" scoped>
 .tamanho  { max-width: 18rem }
-.ponteiro { cursor: pointer; }
 .teal { background: #20c997  }
 </style>

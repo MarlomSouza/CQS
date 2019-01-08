@@ -1,4 +1,5 @@
 <template>
+
   <form
     action="POST"
     id="atividade"
@@ -32,7 +33,9 @@
                 <option value="Desenvolvimento">Desenvolvimento</option>
             </select>
         </div>
-        <button class="btn btn-primary center-block" type="submit" >SALVAR</button>
+        <div class="col-md-12">
+          <button class="btn btn-primary btn-lg btn-block" type="submit" >SALVAR</button>
+        </div>
     </form>
 </template>
 
@@ -40,7 +43,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'Criar',
+  name: 'Formulario',
   data () {
     return {}
   },
@@ -55,4 +58,5 @@ export default {
 }
 </script>
 <style lang="sass">
+.service-form { background-color: #fafbfb; border: 1px solid #e4e8ea; padding: 40px 40px 20px 40px;}
 </style>

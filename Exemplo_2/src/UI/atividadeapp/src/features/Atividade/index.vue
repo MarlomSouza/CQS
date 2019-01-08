@@ -1,13 +1,34 @@
 <template>
-  <div
-    id="app"
-    class="container"
-  >
+  <div class="col-md-12">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container container-without-margin">
+        <button
+          type="button"
+          class="btn btn-light"
+          @click="toogleFormulario"
+        >
+          <icon
+            class="ponteiro"
+            icon="bars"
+          />
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarsExampleDefault"
+        >
+        </div>
+      </div>
+    </nav>
+
     <div class="row">
-      <div class="col-md-9">
-        <navbar @obter="obter"/>
-        {{quantidade}}
-        <div class="row">
+      <div class="col-md-9"
+       :class="[estaVisivel ? comFomulario: semFormulario]"
+      >
+        <navbar @obter="obter" /> {{quantidade}}
+        <div
+          class="row"
+          style="overflow-y: auto; height:500px; "
+        >
           <template v-for="(atividade, index) in atividades">
             <div
               class="col-md-4"
@@ -24,8 +45,8 @@
           </template>
         </div>
       </div>
-      <div class="col-md-3">
-        <criar @salvar-atividade="salvar"></criar>
+      <div class="col-md-3 service-form" v-show="estaVisivel">
+        <formulario @salvar-atividade="salvar"/>
       </div>
     </div>
   </div>
@@ -33,13 +54,19 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import criar from '@/components/Criar'
+import formulario from '@/components/Formulario'
 import card from '@/components/Card'
 import navbar from '@/components/Navbar'
 
 export default {
-  components: { criar, card, navbar },
-
+  components: { formulario, card, navbar },
+  data: function () {
+    return {
+      visible: false,
+      comFomulario: 'col-md-9',
+      semFormulario: 'col-md-12'
+    }
+  },
   methods: {
     ...mapActions('Atividade',
       ['setAtividades',
@@ -67,16 +94,26 @@ export default {
     },
     obter: function () {
       this.setAtividades()
+    },
+    toogleFormulario: function () {
+      this.visible = !this.visible
     }
   },
   mounted () {
     this.setAtividades()
   },
   computed: {
-    ...mapGetters('Atividade', ['quantidade', 'atividades'])
+    ...mapGetters('Atividade', ['quantidade', 'atividades']),
+    estaVisivel: function () {
+      return this.visible
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+  .container-without-margin {
+    padding: 0;
+    margin: 0;
+  }
 </style>
