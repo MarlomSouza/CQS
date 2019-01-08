@@ -9,7 +9,6 @@ const setAtividades = ({ commit, state }) => {
 
   http.get(url).then(response => {
     commit('SET_ATIVIDADES', { ...response.data })
-    Vue.toasted.show('Atividade Obtida')
   })
 }
 

@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Atividade from '@/features/Atividade'
 
 Vue.use(Router)
-
+NProgress.configure({ easing: 'ease', speed: 500 })
 const router = new Router({
   routes: [{
     path: '/',

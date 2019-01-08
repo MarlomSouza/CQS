@@ -1,10 +1,9 @@
 <template>
-  <div class="col-md-12">
+  <div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container container-without-margin">
         <button
           type="button"
-          class="btn btn-light"
           @click="toogleFormulario"
         >
           <icon
@@ -21,8 +20,9 @@
     </nav>
 
     <div class="row">
-      <div class="col-md-9"
-       :class="[estaVisivel ? comFomulario: semFormulario]"
+      <div
+        class="col-md-9"
+        :class="[estaVisivel ? comFomulario: semFormulario]"
       >
         <navbar @obter="obter" /> {{quantidade}}
         <div
@@ -45,8 +45,11 @@
           </template>
         </div>
       </div>
-      <div class="col-md-3 service-form" v-show="estaVisivel">
-        <formulario @salvar-atividade="salvar"/>
+      <div
+        class="col-md-3 service-form"
+        v-show="estaVisivel"
+      >
+        <formulario @salvar-atividade="salvar" />
       </div>
     </div>
   </div>
@@ -112,8 +115,8 @@ export default {
 </script>
 
 <style lang="scss">
-  .container-without-margin {
-    padding: 0;
-    margin: 0;
-  }
+.container-without-margin {
+  padding: 0;
+  margin: 0;
+}
 </style>
