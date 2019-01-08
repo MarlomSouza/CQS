@@ -18,6 +18,7 @@
                 @editar="editar"
                 @remover="remover(atividade,index)"
                 @concluir="concluir(atividade, index)"
+                @desconcluir="desconcluir(atividade, index)"
               ></card>
             </div>
           </template>
@@ -46,6 +47,7 @@ export default {
         'setAtividade',
         'salvarAtividade',
         'concluirAtividade',
+        'desconcluirAtividade',
         'obterAtividade'
       ]),
     remover: function (atividade, index) {
@@ -59,6 +61,9 @@ export default {
     },
     concluir: function (atividade, index) {
       this.concluirAtividade({ atividade, index })
+    },
+    desconcluir: function (atividade, index) {
+      this.desconcluirAtividade({ atividade, index })
     },
     obter: function () {
       this.setAtividades()

@@ -21,6 +21,11 @@ const CONCLUIR_ATIVIDADE = (state, { atividade, index }) => {
   Vue.set(state.atividades, index, atividade)
 }
 
+const DESCONCLUIR_ATIVIDADE = (state, { atividade, index }) => {
+  atividade.concluida = false
+  Vue.set(state.atividades, index, atividade)
+}
+
 const ATUALIZAR_TAB = (state, atividadeConcluida) => {
   state.atividadeConcluida = atividadeConcluida
 }
@@ -37,5 +42,6 @@ export default {
   INCREMENTAR_ATIVIDADES,
   ATUALIZAR_ATIVIDADES,
   CONCLUIR_ATIVIDADE,
+  DESCONCLUIR_ATIVIDADE,
   ATUALIZAR_TAB
 }

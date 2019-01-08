@@ -8,8 +8,7 @@ const setAtividades = ({ commit, state }) => {
   }
 
   http.get(url).then(response => {
-    const atividades = response.data.atividades
-    commit('SET_ATIVIDADES', { atividades })
+    commit('SET_ATIVIDADES', { ...response.data })
     Vue.toasted.show('Atividade Obtida')
   })
 }
@@ -34,9 +33,15 @@ const concluirAtividade = ({ commit }, { atividade, index }) => {
     .catch(erro => Vue.toasted.show(erro.response.data))
 }
 
+const desconcluirAtividade = ({ commit }, { atividade, index }) => {
+  http
+    .put(`${atividade.id}/desconcluir`)
+    .then(() => commit('DESCONCLUIR_ATIVIDADE', { atividade, index }))
+    .then(() => commit('ATUALIZAR_ATIVIDADES', atividade))
+    .catch(erro => Vue.toasted.show(erro.response.data))
+}
+
 const salvarAtividade = ({ commit }, atividade) => {
-  // eslint-disable-next-line no-debugger
-  debugger
   if (!atividade.id) {
     http
       .post('', atividade)
@@ -59,5 +64,6 @@ export default {
   setAtividade,
   salvarAtividade,
   removerAtividades,
-  concluirAtividade
+  concluirAtividade,
+  desconcluirAtividade
 }

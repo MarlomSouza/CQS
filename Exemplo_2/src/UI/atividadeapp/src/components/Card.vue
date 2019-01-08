@@ -17,9 +17,17 @@
           icon="trash"
         />
         <icon
+          v-if="!estaConcluido"
           class="ponteiro"
           @click="concluir"
           icon="check"
+        />
+
+        <icon
+          v-else
+          class="ponteiro"
+          @click="desconcluir"
+          icon="undo"
         />
 
       </div>
@@ -55,6 +63,9 @@ export default {
     },
     concluir: function () {
       this.$emit('concluir', this.atividade)
+    },
+    desconcluir: function () {
+      this.$emit('desconcluir')
     }
   },
   computed: {
