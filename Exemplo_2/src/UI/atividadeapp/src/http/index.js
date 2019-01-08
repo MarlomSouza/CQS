@@ -16,6 +16,9 @@ instance.interceptors.request.use(config => {
 instance.interceptors.response.use(response => {
   NProgress.done()
   return response
-}, () => NProgress.done())
+}, (error) => {
+  NProgress.done()
+  return Promise.reject(error)
+})
 
 export default instance

@@ -35,9 +35,8 @@ namespace UI
                 context.Response.Clear();
                 context.Response.StatusCode = ex.StatusCode;
                 context.Response.ContentType =  ex.ContentType;
-                
 
-                await context.Response.WriteAsync(ex.Message);
+                context.Response.WriteAsync(ex.Message).Wait();
 
                 return;
             }

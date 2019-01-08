@@ -5,7 +5,7 @@ namespace Aplicacao.Excepctions
 {
     public class HttpStatusCodeException : Exception
     {
-        public int StatusCode { get; set; } = 500;
+        public int StatusCode { get; set; } = 400;
         public string ContentType { get; set; } = @"text/plain";
         public HttpStatusCodeException(int statusCode) => this.StatusCode = statusCode;
 
