@@ -3,7 +3,7 @@
     <div class="tamanho card mb-3 card ">
       <div
         class="card-header"
-        :class="[estaConcluido? concluidoClasse: Classe]"
+        :class="[estaConcluido? atividadeConcluida: atividadeAberta]"
       >
         <h5 class="card-title">{{atividade.titulo}}</h5>
         <icon
@@ -34,7 +34,7 @@
       <div class="card-body">
         <p class="card-text">{{atividade.descricao}}</p>
       </div>
-      <div class="card-footer bg-transparent">{{atividade.tipo}}</div>
+      <div class="card-footer bg-transparent">{{tipoAtividade}}</div>
     </div>
   </div>
 </template>
@@ -50,8 +50,14 @@ export default {
   },
   data () {
     return {
-      concluidoClasse: 'text-white teal',
-      Classe: 'bg-light'
+      atividadeConcluida: 'text-white teal',
+      atividadeAberta: 'bg-light',
+      descricaoAtividade: {
+        ManutencaoUrgente: 'Manutenção Urgente',
+        Manutencao: 'Manutenção',
+        Atendimento: 'Atendimento',
+        Desenvolvimento: 'Desenvolvimento'
+      }
     }
   },
   methods: {
@@ -71,6 +77,9 @@ export default {
   computed: {
     estaConcluido: function () {
       return this.atividade.concluida
+    },
+    tipoAtividade: function () {
+      return this.descricaoAtividade[this.atividade.tipo]
     }
   }
 }
