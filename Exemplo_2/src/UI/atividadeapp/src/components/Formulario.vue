@@ -24,18 +24,18 @@
         rows="3"
       />
       </div>
-        <div class="form-group">
-            <label for="tipo">Selecione o tipo de atividade</label>
-            <select  class="form-control" v-model="atividade.tipo" name="Tipo" id="tipo">
-                <option value="ManutencaoUrgente" selected>Manutencao urgente</option>
-                <option value="Manutencao">Manutencao</option>
-                <option value="Atendimento">Atendimento</option>
-                <option value="Desenvolvimento">Desenvolvimento</option>
-            </select>
-        </div>
-        <div class="col-md-12">
-          <button class="btn btn-primary btn-lg btn-block" type="submit" >SALVAR</button>
-        </div>
+    <div class="form-group">
+        <label for="tipo">Selecione o tipo de atividade</label>
+        <select  class="form-control" v-model="atividade.tipo" name="Tipo" id="tipo">
+            <option value="ManutencaoUrgente" selected>Manutenção Urgente</option>
+            <option value="Manutencao">Manutenção</option>
+            <option value="Atendimento">Atendimento</option>
+            <option value="Desenvolvimento">Desenvolvimento</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-m btn-block" type="submit" >SALVAR</button>
+    </div>
     </form>
 </template>
 
@@ -44,9 +44,6 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'Formulario',
-  data () {
-    return {}
-  },
   methods: {
     salvar: function (atividade) {
       this.$emit('salvar-atividade', atividade)
@@ -57,6 +54,5 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-.service-form { background-color: #fafbfb; border: 1px solid #e4e8ea; padding: 40px 40px 20px 40px;}
+<style lang="scss">
 </style>

@@ -6,7 +6,7 @@
               @click="alterarTab(false)"
               :class="{ active:!atividadeConcluida }"
               href="#"
-            >Aberta</a>
+            >Abertas</a>
           </li>
           <li class="nav-item">
             <a
@@ -14,7 +14,7 @@
               @click="alterarTab(true)"
               :class="{ active:atividadeConcluida }"
               href="#"
-            >Concluida</a>
+            >Concluídas</a>
           </li>
         </ul>
 </template>

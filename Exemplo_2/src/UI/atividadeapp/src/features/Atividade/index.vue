@@ -1,27 +1,27 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <div class="container container-without-margin">
-        <button
-          type="button"
-          @click="toogleFormulario"
-        >
-          <icon
-            class="ponteiro"
-            icon="bars"
-          />
-        </button>
-        <div
-          class="collapse navbar-collapse"
-          id="navbarsExampleDefault"
-        >
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-nowrap">
+
+      <button
+        class="navbar-brand"
+        type="button"
+        @click="toogleFormulario"
+      >
+        <icon
+          class="ponteiro"
+          icon="bars"
+        />
+      </button>
+      <div class="navbar-collapse justify-content-center">
+        <div class="navbar-nav mx-auto">
+          <h3 class="text-white">Atividades</h3>
         </div>
       </div>
     </nav>
 
     <div class="row">
       <div
-        class="col-md-9"
+        class="col-sm-7"
         :class="[estaVisivel ? comFomulario: semFormulario]"
       >
         <navbar @obter="obter" /> {{quantidade}}
@@ -31,7 +31,7 @@
         >
           <template v-for="(atividade, index) in atividades">
             <div
-              class="col-md-4"
+              class="col-sm-6 col-md-6 col-lg-3"
               :key="atividade.id"
             >
               <card
@@ -45,10 +45,7 @@
           </template>
         </div>
       </div>
-      <div
-        class="col-md-3 service-form"
-        v-show="estaVisivel"
-      >
+      <div class="col-sm-5 col-md-4 service-form"  v-show="estaVisivel">
         <formulario @salvar-atividade="salvar" />
       </div>
     </div>
@@ -66,8 +63,8 @@ export default {
   data: function () {
     return {
       visible: false,
-      comFomulario: 'col-md-9',
-      semFormulario: 'col-md-12'
+      comFomulario: 'col-md-8',
+      semFormulario: 'col-sm-12'
     }
   },
   methods: {
@@ -115,8 +112,4 @@ export default {
 </script>
 
 <style lang="scss">
-.container-without-margin {
-  padding: 0;
-  margin: 0;
-}
 </style>
