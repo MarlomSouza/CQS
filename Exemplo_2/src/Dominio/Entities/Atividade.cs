@@ -56,7 +56,7 @@ namespace Dominio.Entities
         public bool PodeExcluir()
         {
             DomainException.Quando(Tipo == TipoAtividade.ManutencaoUrgente,
-                             "Não pode excluir atividade que seja do tipo manutação urgente");
+                             "Não pode excluir atividade que seja do tipo manutenção urgente");
             return true;
         }
     }

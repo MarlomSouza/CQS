@@ -26,11 +26,10 @@
       </div>
     <div class="form-group">
         <label for="tipo">Selecione o tipo de atividade</label>
-        <select  class="form-control" v-model="atividade.tipo" name="Tipo" id="tipo">
-            <option value="ManutencaoUrgente" selected>Manutenção Urgente</option>
-            <option value="Manutencao">Manutenção</option>
-            <option value="Atendimento">Atendimento</option>
-            <option value="Desenvolvimento">Desenvolvimento</option>
+        <select  class="form-control" v-model="atividade.tipo"  name="Tipo" id="tipo">
+          <option v-for="option in options" :value="option.value" :key="option.value">
+            {{ option.text }}
+          </option>
         </select>
     </div>
     <div class="form-group">
@@ -44,6 +43,17 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'Formulario',
+  data: function () {
+    return {
+      atividade: { tipo: 'ManutencaoUrgente' },
+      options: [
+        { text: 'Manutenção Urgente', value: 'ManutencaoUrgente' },
+        { text: 'Manutenção', value: 'Manutencao' },
+        { text: 'Atendimento', value: 'Atendimento' },
+        { text: 'Desenvolvimento', value: 'Desenvolvimento' }
+      ]
+    }
+  },
   methods: {
     salvar: function (atividade) {
       this.$emit('salvar-atividade', atividade)
