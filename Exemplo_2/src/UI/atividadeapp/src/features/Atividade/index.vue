@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-nowrap">
 
-      <button
+      <button id="formularioToggle"
         class="navbar-brand"
         type="button"
         @click="toogleFormulario"

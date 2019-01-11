@@ -33,7 +33,7 @@
         </select>
     </div>
     <div class="form-group">
-      <button class="btn btn-primary btn-m btn-block" type="submit" >SALVAR</button>
+      <button class="btn btn-primary btn-m btn-block" type="submit"  id="Salvar">Salvar</button>
     </div>
     </form>
 </template>
