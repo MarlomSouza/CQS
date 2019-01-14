@@ -13,6 +13,7 @@ const REMOVER_ATIVIDADE = (state, index) => {
 }
 
 const SET_ATIVIDADE = (state, atividade) => {
+  console.log('atividade mutation', { ...atividade })
   state.atividade = { ...atividade }
 }
 

@@ -81,6 +81,7 @@ export default {
       this.removerAtividades({ atividade, index })
     },
     editar: function (atividade) {
+      console.log('atividade', atividade)
       this.setAtividade(atividade)
     },
     salvar: function (atividade) {
