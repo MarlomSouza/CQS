@@ -26,7 +26,7 @@
       </div>
     <div class="form-group">
         <label for="tipo">Selecione o tipo de atividade</label>
-        <select  class="form-control" v-model="atividade.tipo"  name="Tipo" id="tipo">
+        <select class="form-control" v-model="selected" @change="select" name="Tipo" id="tipo">
           <option v-for="option in options" :value="option.value" :key="option.value">
             {{ option.text }}
           </option>
@@ -45,7 +45,7 @@ export default {
   name: 'Formulario',
   data: function () {
     return {
-      atividade: { tipo: 'ManutencaoUrgente' },
+      selected: 'Atendimento',
       options: [
         { text: 'Manutenção Urgente', value: 'ManutencaoUrgente' },
         { text: 'Manutenção', value: 'Manutencao' },
@@ -57,6 +57,9 @@ export default {
   methods: {
     salvar: function (atividade) {
       this.$emit('salvar-atividade', atividade)
+    },
+    select: function () {
+      this.atividade.tipo = this.selected
     }
   },
   computed: {

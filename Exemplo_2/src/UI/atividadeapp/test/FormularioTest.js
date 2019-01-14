@@ -7,6 +7,7 @@ fixture `Getting Started`
 
   const tipoSelect = Selector('#tipo');
   const tipoOpcoes = tipoSelect.find('option');
+  const submitButton = Selector('button[type="submit"]')
 
 test('Deve salvar uma atividade', async t => {
   await t
@@ -15,7 +16,8 @@ test('Deve salvar uma atividade', async t => {
     .typeText('#descricao', 'Descricao da atividade test')
     .click(tipoSelect)
     .click(tipoOpcoes.withText('Atendimento'))
-    .click('#Salvar')
-    .expect(Selector(".card-title").value).eql('Nova Atividade Test')
+    .click(submitButton)
+    .expect(Selector(".card-title").textContent).eql('Nova Atividade Test')
+    .click("#remover")
 
 })

@@ -2,10 +2,7 @@ import http from '../../../http'
 import Vue from 'vue'
 
 const setAtividades = ({ commit, state }) => {
-  let url = '/abertas'
-  if (state.atividadeConcluida) {
-    url = '/concluidas'
-  }
+  let url = state.atividadeConcluida ? '/concluidas' : '/abertas'
 
   http.get(url).then(response => {
     commit('SET_ATIVIDADES', { ...response.data })
@@ -41,21 +38,16 @@ const desconcluirAtividade = ({ commit }, { atividade, index }) => {
 }
 
 const salvarAtividade = ({ commit }, atividade) => {
+  let atividadeSalva = {}
   if (!atividade.id) {
-    http
-      .post('', atividade)
-      .then(() => commit('INCREMENTAR_ATIVIDADES', atividade))
-      .then(() => Vue.toasted.show('Atividade salva'))
-      .catch(erro => Vue.toasted.show(erro.response.data))
+    atividadeSalva = http.post('', atividade).then(() => commit('INCREMENTAR_ATIVIDADES', atividade))
   } else {
-    http
-      .put(`${atividade.id}`, atividade)
-      .then(() => commit('ATUALIZAR_ATIVIDADES', atividade))
-      .then(() => Vue.toasted.show('Atividade salva'))
-      .catch(erro => Vue.toasted.show(erro.response.data))
+    atividadeSalva = http.put(`${atividade.id}`, atividade).then(() => commit('ATUALIZAR_ATIVIDADES', atividade))
   }
-
-  commit('SET_ATIVIDADE', {})
+  atividadeSalva
+    .then(() => commit('SET_ATIVIDADE', {}))
+    .then(() => Vue.toasted.show('Atividade salva'))
+    .catch(erro => Vue.toasted.show(erro.response.data))
 }
 
 export default {

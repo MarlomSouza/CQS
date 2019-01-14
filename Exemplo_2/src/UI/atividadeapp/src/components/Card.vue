@@ -7,16 +7,19 @@
       >
         <h5 class="card-title">{{atividade.titulo}}</h5>
         <icon
+          id="editar"
           class="ponteiro"
           icon="edit"
           @click="editar"
         />
         <icon
+          id="remover"
           class="ponteiro"
           @click="remover"
           icon="trash"
         />
         <icon
+        id="concluir"
           v-if="!estaConcluido"
           class="ponteiro"
           @click="concluir"
@@ -24,6 +27,7 @@
         />
 
         <icon
+          id="desconcluir"
           v-else
           class="ponteiro"
           @click="desconcluir"
