@@ -6,7 +6,7 @@ const mock = RequestMock()
   .respond({
     'atividades': [{
       'id': 27,
-      'titulo': 'Atividade nova',
+      'titulo': 'Atividade nova para test',
       'descricao': 'descrição atividade',
       'tipo': 'ManutencaoUrgente',
       'concluida': false
@@ -19,13 +19,13 @@ const mock = RequestMock()
 fixture('Listagem Cards')
   .after(async ctx => {
     console.log('After a fixture');
-  }).page('http://localhost:8080').requestHooks(mock)
+  }).page('http://localhost:8080')
 
 
 
-test
+test.requestHooks(mock)
   ('Deve listar um card de atividade aberto', async t => {
     const container = Selector(".card-title").exists;
-    await t.expect(Selector(".card-title").value).eql('Atividade nova')
-      .debug().expect(container).ok();
+    await t.
+      expect(Selector(".card-title").textContent).eql('Atividade nova para test')
   })

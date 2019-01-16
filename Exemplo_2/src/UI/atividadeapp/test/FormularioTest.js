@@ -10,14 +10,16 @@ fixture `Getting Started`
   const submitButton = Selector('button[type="submit"]')
 
 test('Deve salvar uma atividade', async t => {
+  const titulo = 'Nova Atividade Test'
   await t
     .click("#formularioToggle")
-    .typeText('#titulo', 'Nova Atividade Test')
+
+    .typeText('#titulo', titulo)
     .typeText('#descricao', 'Descricao da atividade test')
     .click(tipoSelect)
     .click(tipoOpcoes.withText('Atendimento'))
     .click(submitButton)
-    .expect(Selector(".card-title").textContent).eql('Nova Atividade Test')
+    .expect(Selector(".card-title").count).gte(1)
+    .expect(Selector(".card-title").textContent).contains(titulo)
     .click("#remover")
-
 })
